@@ -23,9 +23,9 @@ namespace NavajaSuiza
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
+        private void btnNumerosPrimos_Click(object sender, EventArgs e)
         {
-            Aplicación_1.frmAplicacion1 oFormulario = new Aplicación_1.frmAplicacion1();
+            Aplicación_1_NumerosPrimos.frmNumerosPrimos oFormulario = new Aplicación_1_NumerosPrimos.frmNumerosPrimos();
             oFormulario.ShowDialog();
 
             

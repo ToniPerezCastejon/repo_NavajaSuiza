@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\NavajaSuiza.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,12 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aplicación 1\Aplicacion1.cs" />
-    <Compile Include="Aplicación 1\frmAplicacion1.cs">
+    <Compile Include="Aplicación 1\frmNumerosPrimos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Aplicación 1\frmAplicacion1.Designer.cs">
-      <DependentUpon>frmAplicacion1.cs</DependentUpon>
+    <Compile Include="Aplicación 1\frmNumerosPrimos.Designer.cs">
+      <DependentUpon>frmNumerosPrimos.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -61,8 +61,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Aplicación 1\frmAplicacion1.resx">
-      <DependentUpon>frmAplicacion1.cs</DependentUpon>
+    <EmbeddedResource Include="Aplicación 1\frmNumerosPrimos.resx">
+      <DependentUpon>frmNumerosPrimos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
