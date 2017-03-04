@@ -68,6 +68,12 @@
     <Compile Include="Aplicación 3 Adivinar Número Aleatorio\InputBox.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Aplicación 4 Fibonacci\frmPotenciaNumero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicación 4 Fibonacci\frmPotenciaNumero.Designer.cs">
+      <DependentUpon>frmPotenciaNumero.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicación 3 Adivinar Número Aleatorio\frmJuegoAdivinarNumero.resx">
       <DependentUpon>frmJuegoAdivinarNumero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicación 4 Fibonacci\frmPotenciaNumero.resx">
+      <DependentUpon>frmPotenciaNumero.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -110,9 +119,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Aplicación 4\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

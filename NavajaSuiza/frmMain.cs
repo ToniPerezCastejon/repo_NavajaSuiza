@@ -60,5 +60,16 @@ namespace NavajaSuiza
             Aplicación_3_JuegoAdivinarNumero.frmJuegoAdivinarNumero oFormulario = new Aplicación_3_JuegoAdivinarNumero.frmJuegoAdivinarNumero();
             oFormulario.ShowDialog();
         }
+
+        /// <summary>
+        /// Llama a la aplicación: <see cref="Aplicación_4_PotenciaNumero"/> 
+        /// </summary>
+        /// <param name="sender"> Parámetro de tipo object</param>
+        /// <param name="e"> Parámetro de la clase <see cref="EventArgs"/> </param>
+        private void btnPotenciaNumero_Click(object sender, EventArgs e)
+        {
+            Aplicación_4_PotenciaNumero.frmPotenciaNumero oFormulario = new Aplicación_4_PotenciaNumero.frmPotenciaNumero();
+            oFormulario.ShowDialog();
+        }
     }
 }
