@@ -14,13 +14,13 @@ using System.Windows.Forms;
 namespace NavajaSuiza.Aplicación_1_NumerosPrimos
 {
     /// <summary>
-    /// Clase pública parcial <see cref="frmNumerosPrimos"/> 
+    /// Clase pública parcial <see cref="frmNumerosPrimos"/> de tipo <see cref="Form"/>
     /// </summary>
     public partial class frmNumerosPrimos : Form
     {
 
         /// <summary>
-        /// ¿Constructor o inicializador del formulario <see cref="frmNumerosPrimos"/>? 
+        /// Constructor del formulario <see cref="frmNumerosPrimos"/>
         /// </summary>
         public frmNumerosPrimos()
         {
@@ -31,9 +31,9 @@ namespace NavajaSuiza.Aplicación_1_NumerosPrimos
         /// Evento que recoge un número entero mediante textbox, y lanza el método <see cref="ComprobarPrimo(int)"/> para comprobar si dicho número es primo
         /// </summary>
         ///  <remarks>El booleano recibido por el método <see cref="ComprobarPrimo(int)"/> determina si el número es primo o no </remarks>
-        /// <param name="sender"> parámetro de tipo object </param>
-        /// <param name="e"> parámetro de la clase EventArgs </param>
-        private void button1_Click(object sender, EventArgs e)
+        /// <param name="sender"> Parámetro de tipo object </param>
+        /// <param name="e"> Parámetro de la clase <see cref="EventArgs"/> </param>
+        private void btnNumerosPrimos_Click(object sender, EventArgs e)
         {
             int iNumUsuario;
             bool bEsPrimo = true;

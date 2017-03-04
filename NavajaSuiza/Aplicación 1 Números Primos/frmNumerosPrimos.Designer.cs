@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lbl1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnNumerosPrimos = new System.Windows.Forms.Button();
             this.txtNumeroUsuario = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -42,15 +42,15 @@
             this.lbl1.TabIndex = 0;
             this.lbl1.Text = "Introduce un número entero mayor que 0";
             // 
-            // button1
+            // btnNumerosPrimos
             // 
-            this.button1.Location = new System.Drawing.Point(322, 77);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 128);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "LLama a la  lógica de la clase Aplicación1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnNumerosPrimos.Location = new System.Drawing.Point(322, 77);
+            this.btnNumerosPrimos.Name = "btnNumerosPrimos";
+            this.btnNumerosPrimos.Size = new System.Drawing.Size(144, 128);
+            this.btnNumerosPrimos.TabIndex = 1;
+            this.btnNumerosPrimos.Text = "Comprobar si el número es primo";
+            this.btnNumerosPrimos.UseVisualStyleBackColor = true;
+            this.btnNumerosPrimos.Click += new System.EventHandler(this.btnNumerosPrimos_Click);
             // 
             // txtNumeroUsuario
             // 
@@ -65,7 +65,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(517, 307);
             this.Controls.Add(this.txtNumeroUsuario);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnNumerosPrimos);
             this.Controls.Add(this.lbl1);
             this.Name = "frmNumerosPrimos";
             this.Text = "Aplicacion1";
@@ -77,7 +77,7 @@
         #endregion
 
         private System.Windows.Forms.Label lbl1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnNumerosPrimos;
         private System.Windows.Forms.TextBox txtNumeroUsuario;
     }
 }

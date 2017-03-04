@@ -47,11 +47,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aplicación 1\frmNumerosPrimos.cs">
+    <Compile Include="Aplicación 1 Números Primos\frmNumerosPrimos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Aplicación 1\frmNumerosPrimos.Designer.cs">
+    <Compile Include="Aplicación 1 Números Primos\frmNumerosPrimos.Designer.cs">
       <DependentUpon>frmNumerosPrimos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicación 2 Validar Fecha\frmValidarFecha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicación 2 Validar Fecha\frmValidarFecha.Designer.cs">
+      <DependentUpon>frmValidarFecha.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -61,8 +67,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Aplicación 1\frmNumerosPrimos.resx">
+    <EmbeddedResource Include="Aplicación 1 Números Primos\frmNumerosPrimos.resx">
       <DependentUpon>frmNumerosPrimos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicación 2 Validar Fecha\frmValidarFecha.resx">
+      <DependentUpon>frmValidarFecha.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -90,7 +99,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Aplicación 2\" />
     <Folder Include="Aplicación 3\" />
     <Folder Include="Aplicación 4\" />
   </ItemGroup>
