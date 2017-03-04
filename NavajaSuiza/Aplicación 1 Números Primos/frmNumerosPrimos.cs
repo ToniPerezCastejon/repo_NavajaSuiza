@@ -56,11 +56,11 @@ namespace NavajaSuiza.Aplicación_1_NumerosPrimos
         /// Método que recibe un número de tipo entero, comprueba si dicho número es primo o no, y devuelve un booleano
         /// </summary>
         /// <remarks> 
-        /// el contador i se inicia en 2, incrementándose en + 1 en cada iteración del while,
+        /// El contador i se inicia en 2, incrementándose en + 1 en cada iteración del while,
         /// hasta un máximo de <paramref name="numero"/> / 2
         /// </remarks>
-        /// <param name="numero"> valor de tipo int recogido por el método, que comprobará si es o no es primo</param>
-        /// <returns> el booleano que determina si <paramref name="numero"/> es primo o no</returns>
+        /// <param name="numero"> Valor de tipo int recogido por el método, que comprobará si es o no es primo</param>
+        /// <returns> Booleano que determina si <paramref name="numero"/> es primo o no</returns>
         bool ComprobarPrimo(int numero)
         {
             bool bEsPrimo = true;

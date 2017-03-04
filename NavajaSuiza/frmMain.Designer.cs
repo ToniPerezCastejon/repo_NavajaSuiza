@@ -32,7 +32,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnNumerosPrimos = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnJuegoAdivinarNumero = new System.Windows.Forms.Button();
             this.btnValidarFecha = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -66,14 +66,15 @@
             this.button2.Text = "Aplicación 4";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnJuegoAdivinarNumero
             // 
-            this.button3.Location = new System.Drawing.Point(36, 283);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(122, 69);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Aplicación 3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnJuegoAdivinarNumero.Location = new System.Drawing.Point(36, 283);
+            this.btnJuegoAdivinarNumero.Name = "btnJuegoAdivinarNumero";
+            this.btnJuegoAdivinarNumero.Size = new System.Drawing.Size(122, 69);
+            this.btnJuegoAdivinarNumero.TabIndex = 3;
+            this.btnJuegoAdivinarNumero.Text = "Aplicación 3: Adivinar Número";
+            this.btnJuegoAdivinarNumero.UseVisualStyleBackColor = true;
+            this.btnJuegoAdivinarNumero.Click += new System.EventHandler(this.btnJuegoAdivinarNumero_Click);
             // 
             // btnValidarFecha
             // 
@@ -91,7 +92,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(638, 375);
             this.Controls.Add(this.btnValidarFecha);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnJuegoAdivinarNumero);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnNumerosPrimos);
             this.Controls.Add(this.pictureBox1);
@@ -107,7 +108,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnNumerosPrimos;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnJuegoAdivinarNumero;
         private System.Windows.Forms.Button btnValidarFecha;
     }
 }

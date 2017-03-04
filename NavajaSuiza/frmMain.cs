@@ -48,5 +48,17 @@ namespace NavajaSuiza
             Aplicación_2_ValidarFecha.frmValidarFecha oFormulario = new Aplicación_2_ValidarFecha.frmValidarFecha();
             oFormulario.ShowDialog();
         }
+
+
+        /// <summary>
+        /// Llama a la aplicación: <see cref="Aplicación_3_JuegoAdivinarNumero"/> 
+        /// </summary>
+        /// <param name="sender"> Parámetro de tipo object </param>
+        /// <param name="e"> Parámetro de la clase <see cref="EventArgs"/> </param>
+        private void btnJuegoAdivinarNumero_Click(object sender, EventArgs e)
+        {
+            Aplicación_3_JuegoAdivinarNumero.frmJuegoAdivinarNumero oFormulario = new Aplicación_3_JuegoAdivinarNumero.frmJuegoAdivinarNumero();
+            oFormulario.ShowDialog();
+        }
     }
 }

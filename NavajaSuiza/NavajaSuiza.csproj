@@ -59,6 +59,15 @@
     <Compile Include="Aplicación 2 Validar Fecha\frmValidarFecha.Designer.cs">
       <DependentUpon>frmValidarFecha.cs</DependentUpon>
     </Compile>
+    <Compile Include="Aplicación 3 Adivinar Número Aleatorio\frmJuegoAdivinarNumero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Aplicación 3 Adivinar Número Aleatorio\frmJuegoAdivinarNumero.Designer.cs">
+      <DependentUpon>frmJuegoAdivinarNumero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Aplicación 3 Adivinar Número Aleatorio\InputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicación 2 Validar Fecha\frmValidarFecha.resx">
       <DependentUpon>frmValidarFecha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Aplicación 3 Adivinar Número Aleatorio\frmJuegoAdivinarNumero.resx">
+      <DependentUpon>frmJuegoAdivinarNumero.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -99,7 +111,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Aplicación 3\" />
     <Folder Include="Aplicación 4\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
