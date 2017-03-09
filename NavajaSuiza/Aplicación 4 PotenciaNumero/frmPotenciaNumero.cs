@@ -34,13 +34,34 @@ namespace NavajaSuiza.Aplicación_4_PotenciaNumero
         /// <param name="e"> Parámetro de la clase <see cref="EventArgs"/> </param>
         private void btnPotenciaNumero_Click(object sender, EventArgs e)
         {
-            int iBase = int.Parse(txtBase.Text);
-            int iExponente = int.Parse(txtExponente.Text);
+            int iBase;
+            int iExponente;
             int iResultado;
+            bool bBaseValida;
+            bool bExponenteValido;
+            string sMensajeError = "!Error!";
 
 
-            iResultado = CalcularPotencia(iBase, iExponente);
-            MessageBox.Show(iResultado.ToString());
+            bBaseValida = int.TryParse(txtBase.Text, out iBase);
+            bExponenteValido = int.TryParse(txtExponente.Text, out iExponente);
+
+            if(!bBaseValida || !bExponenteValido)
+            {
+                if(!bBaseValida)
+                {
+                    sMensajeError += "\n\nLa base introducida debe de ser un número entero";
+                }
+                if(!bExponenteValido)
+                {
+                    sMensajeError += "\n\nEl exponente introducido debe de ser un número entero";
+                }
+                MessageBox.Show(sMensajeError);
+            }
+            else
+            {
+                iResultado = CalcularPotencia(iBase, iExponente);
+                MessageBox.Show(iResultado.ToString());
+            }
         }
 
         /// <summary>

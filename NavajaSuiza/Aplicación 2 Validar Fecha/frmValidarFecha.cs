@@ -39,22 +39,50 @@ namespace NavajaSuiza.Aplicación_2_ValidarFecha
         /// <param name="e"> Parámetro de la clase <see cref="EventArgs"/> </param>
         private void btnValidarFecha_Click(object sender, EventArgs e)
         {
-            int iDia = int.Parse(txtDia.Text);
-            int iMes = int.Parse(txtMes.Text);
-            int iAnyo = int.Parse(txtAnyo.Text);
+            bool bDia;
+            bool bMes;
+            bool bAnyo;
+            string sMensajeError = "!Error!";
+            int iDia; 
+            int iMes; 
+            int iAnyo; 
             bool bFechaValida = true;
 
 
-            bFechaValida = ValidarFecha(iDia, iMes, iAnyo);
+            bDia = int.TryParse((txtDia.Text), out iDia);
+            bMes = int.TryParse((txtMes.Text), out iMes);
+            bAnyo = int.TryParse((txtAnyo.Text), out iAnyo);
 
-            if (bFechaValida == true)
+            if(!bDia || !bMes || !bAnyo)
             {
-                MessageBox.Show("La fecha introducida es válida");
+                if(!bDia)
+                {
+                    sMensajeError += "\n\nEl Día introducido no es un número entero";
+                }
+                if(!bMes)
+                {
+                    sMensajeError += "\n\nEl Mes introducido no es un número entero";
+                }
+                if (!bAnyo)
+                {
+                    sMensajeError += "\n\nEl Anyo introducido no es un número entero";
+                }
+                MessageBox.Show(sMensajeError);
             }
             else
             {
-                MessageBox.Show("La fecha introducida NO es válida");
+                bFechaValida = ValidarFecha(iDia, iMes, iAnyo);
+
+                if (bFechaValida == true)
+                {
+                    MessageBox.Show("La fecha introducida es válida");
+                }
+                else
+                {
+                    MessageBox.Show("La fecha introducida NO es válida");
+                }
             }
+
         }
 
         /// <summary>

@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavajaSuiza", "NavajaSuiza\NavajaSuiza.csproj", "{39467577-9311-45E9-9CA8-C2BC854B3A1C}"
+EndProject
+Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "DocumentacionNavajaSuiza", "DocumentacionNavajaSuiza\DocumentacionNavajaSuiza.shfbproj", "{FF22AA30-323A-4C8B-8FD1-5893F367A127}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{39467577-9311-45E9-9CA8-C2BC854B3A1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39467577-9311-45E9-9CA8-C2BC854B3A1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39467577-9311-45E9-9CA8-C2BC854B3A1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF22AA30-323A-4C8B-8FD1-5893F367A127}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF22AA30-323A-4C8B-8FD1-5893F367A127}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF22AA30-323A-4C8B-8FD1-5893F367A127}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF22AA30-323A-4C8B-8FD1-5893F367A127}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

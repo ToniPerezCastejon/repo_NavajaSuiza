@@ -35,7 +35,7 @@ namespace NavajaSuiza.Aplicación_3_JuegoAdivinarNumero
         private void btnJuegoAdivinarNumero_Click(object sender, EventArgs e)
         {
             Random rdm = new Random();
-            int iNumero = rdm.Next(1, 100);
+            int iNumero = rdm.Next(0, 100);
 
 
             JugarRandom(iNumero);
@@ -74,34 +74,41 @@ namespace NavajaSuiza.Aplicación_3_JuegoAdivinarNumero
         {
             int iNumeroUsuario;
             int iIntentos = 6;
+            bool bCorrecto;
             string sNumerosProbados = "Números probados: ";
 
 
             do
             {
-                iNumeroUsuario = int.Parse(InputBox("Introduzca un número entero comprendido entre 1 y 100"));
+                bCorrecto = int.TryParse(InputBox("Introduzca un número entero comprendido entre 0 y 100"), out iNumeroUsuario);
 
-                if (iNumeroUsuario == iNumeroRandom)
+                if(!bCorrecto)
                 {
-                    MessageBox.Show("¡Enhorabuena! Has acertado el número " + iNumeroRandom);
+                    MessageBox.Show("¡Error!\n\nEl valor introducido no es un número entero");
                 }
                 else
                 {
-                    if (iNumeroUsuario < iNumeroRandom)
+                    if (iNumeroUsuario == iNumeroRandom)
                     {
-                        sNumerosProbados = sNumerosProbados + iNumeroUsuario + ", ";
-                        lblNumerosProbados.Text = sNumerosProbados;
-                        iIntentos--;
-                        MessageBox.Show("El número introducido (" + iNumeroUsuario + ") es MENOR que el número secreto\n Te quedan " + iIntentos + " intentos");
+                        MessageBox.Show("¡Enhorabuena! Has acertado el número " + iNumeroRandom);
                     }
                     else
                     {
-                        sNumerosProbados = sNumerosProbados + iNumeroUsuario + ", ";
-                        lblNumerosProbados.Text = sNumerosProbados;
-                        iIntentos--;
-                        MessageBox.Show("El número introducido (" + iNumeroUsuario + ") es MAYOR que el número secreto\n Te quedan " + iIntentos + " intentos");
+                        if (iNumeroUsuario < iNumeroRandom)
+                        {
+                            sNumerosProbados = sNumerosProbados + iNumeroUsuario + ", ";
+                            lblNumerosProbados.Text = sNumerosProbados;
+                            iIntentos--;
+                            MessageBox.Show("El número introducido (" + iNumeroUsuario + ") es MENOR que el número secreto\n Te quedan " + iIntentos + " intentos");
+                        }
+                        else
+                        {
+                            sNumerosProbados = sNumerosProbados + iNumeroUsuario + ", ";
+                            lblNumerosProbados.Text = sNumerosProbados;
+                            iIntentos--;
+                            MessageBox.Show("El número introducido (" + iNumeroUsuario + ") es MAYOR que el número secreto\n Te quedan " + iIntentos + " intentos");
+                        }
                     }
-
                 }
             }
             while (iNumeroUsuario != iNumeroRandom && iIntentos > 0);
@@ -110,7 +117,6 @@ namespace NavajaSuiza.Aplicación_3_JuegoAdivinarNumero
             {
                 MessageBox.Show("¡Has perdido! ¡LOOSER!\nEl número era: " + iNumeroRandom);
             }
-
         }
     }
 }

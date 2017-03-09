@@ -37,19 +37,29 @@ namespace NavajaSuiza.Aplicación_1_NumerosPrimos
         {
             int iNumUsuario;
             bool bEsPrimo = true;
+            bool bCorrecto;
 
 
-            iNumUsuario = int.Parse(txtNumeroUsuario.Text);
-            bEsPrimo = ComprobarPrimo(iNumUsuario);
+            bCorrecto = int.TryParse(txtNumeroUsuario.Text, out iNumUsuario);
 
-            if(bEsPrimo)
+            if (!bCorrecto)
             {
-                MessageBox.Show("El número " + iNumUsuario + " es primo");
+                MessageBox.Show("No es un número entero correcto.");
             }
             else
             {
-                MessageBox.Show("El número " + iNumUsuario + " no es primo");
+                bEsPrimo = ComprobarPrimo(iNumUsuario);
+
+                if (bEsPrimo)
+                {
+                    MessageBox.Show("El número " + iNumUsuario + " es primo");
+                }
+                else
+                {
+                    MessageBox.Show("El número " + iNumUsuario + " no es primo");
+                }
             }
+
         }
 
         /// <summary>
@@ -57,20 +67,20 @@ namespace NavajaSuiza.Aplicación_1_NumerosPrimos
         /// </summary>
         /// <remarks> 
         /// El contador i se inicia en 2, incrementándose en + 1 en cada iteración del while,
-        /// hasta un máximo de <paramref name="numero"/> / 2
+        /// hasta un máximo de <paramref name="iNumero"/> / 2
         /// </remarks>
-        /// <param name="numero"> Valor de tipo int recogido por el método, que comprobará si es o no es primo</param>
-        /// <returns> Booleano que determina si <paramref name="numero"/> es primo o no</returns>
-        bool ComprobarPrimo(int numero)
+        /// <param name="iNumero"> Valor de tipo int recogido por el método, que comprobará si es o no es primo</param>
+        /// <returns> Booleano que determina si <paramref name="iNumero"/> es primo o no</returns>
+        bool ComprobarPrimo(int iNumero)
         {
             bool bEsPrimo = true;
             int iModulo = 0;
             int i = 2;
 
 
-            while(i <= numero / 2 && bEsPrimo)
+            while(i <= iNumero / 2 && bEsPrimo)
             {
-                iModulo = numero % i;
+                iModulo = iNumero % i;
 
                 if(iModulo == 0)
                 {
