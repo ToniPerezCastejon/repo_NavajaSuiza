@@ -7,6 +7,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavajaSuiza", "NavajaSuiza\
 EndProject
 Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "DocumentacionNavajaSuiza", "DocumentacionNavajaSuiza\DocumentacionNavajaSuiza.shfbproj", "{FF22AA30-323A-4C8B-8FD1-5893F367A127}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Política de estilos", "Política de estilos", "{87954493-D1A8-4CBF-BE75-C11DB0E096BA}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Política de estilos del código fuente.pdf = ..\..\Política de estilos del código fuente.pdf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pruebas de Caja Negra y Caja Blanca", "Pruebas de Caja Negra y Caja Blanca", "{330E31E7-D3B6-4D7A-90AB-53FABD399172}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\NavajaSuizaPruebasCajaNegraBlanca.pdf = ..\..\NavajaSuizaPruebasCajaNegraBlanca.pdf
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
