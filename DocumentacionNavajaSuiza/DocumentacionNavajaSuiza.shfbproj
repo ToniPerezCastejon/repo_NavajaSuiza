@@ -62,11 +62,15 @@
     <Folder Include="Content\VersionHistory" />
     <Folder Include="icons" />
     <Folder Include="media" />
+    <Folder Include="Pruebas de Caja Negra y Caja Blanca" />
+    <Folder Include="Política de estilos" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\VersionHistory\v1.0.0.0.aml" />
     <None Include="Content\VersionHistory\VersionHistory.aml" />
     <None Include="Content\Welcome.aml" />
+    <None Include="Política de estilos\Política de estilos del código fuente.pdf" />
+    <None Include="Pruebas de Caja Negra y Caja Blanca\NavajaSuizaPruebasCajaNegraBlanca.pdf" />
   </ItemGroup>
   <ItemGroup>
     <ContentLayout Include="ContentLayout.content" />
