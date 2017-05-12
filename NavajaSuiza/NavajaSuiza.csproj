@@ -61,14 +61,12 @@
     <Compile Include="Aplicación 2 Validar Fecha\frmValidarFecha.Designer.cs">
       <DependentUpon>frmValidarFecha.cs</DependentUpon>
     </Compile>
+    <Compile Include="Aplicación 3 Adivinar Número Aleatorio\AdivinarNúmeroLógica.cs" />
     <Compile Include="Aplicación 3 Adivinar Número Aleatorio\frmJuegoAdivinarNumero.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Aplicación 3 Adivinar Número Aleatorio\frmJuegoAdivinarNumero.Designer.cs">
       <DependentUpon>frmJuegoAdivinarNumero.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Aplicación 3 Adivinar Número Aleatorio\InputBox.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Aplicación 4 PotenciaNumero\frmPotenciaNumero.cs">
       <SubType>Form</SubType>

@@ -123,7 +123,7 @@
 - Pulsa el botón "JUGAR" para comenzar el juego.
 - El número a adivinar está comprendido entre 0 y 100
 - No puedes introducir números menores que 0, mayores que 100, o decimales
-- Dispones de 4 intentos
+- Dispones de 6 intentos
 - Tras cada intento fallido, un mensaje te indicará si el número oculto es mayor
    o menor que tu último intento
 

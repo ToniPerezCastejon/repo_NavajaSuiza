@@ -99,7 +99,7 @@
             this.Controls.Add(this.txtBase);
             this.Controls.Add(this.btnPotenciaNumero);
             this.Name = "frmPotenciaNumero";
-            this.Text = "frmFibonacci";
+            this.Text = "Potencia Número";
             this.ResumeLayout(false);
             this.PerformLayout();
 

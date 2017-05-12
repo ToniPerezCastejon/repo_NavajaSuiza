@@ -33,13 +33,16 @@
             this.lblTituloJuego = new System.Windows.Forms.Label();
             this.lblInstruccionesJuego = new System.Windows.Forms.Label();
             this.lblNumerosProbados = new System.Windows.Forms.Label();
+            this.txtNumUsuario = new System.Windows.Forms.TextBox();
+            this.btnProbarNum = new System.Windows.Forms.Button();
+            this.lblError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnJuegoAdivinarNumero
             // 
-            this.btnJuegoAdivinarNumero.Location = new System.Drawing.Point(12, 204);
+            this.btnJuegoAdivinarNumero.Location = new System.Drawing.Point(15, 191);
             this.btnJuegoAdivinarNumero.Name = "btnJuegoAdivinarNumero";
-            this.btnJuegoAdivinarNumero.Size = new System.Drawing.Size(207, 69);
+            this.btnJuegoAdivinarNumero.Size = new System.Drawing.Size(108, 39);
             this.btnJuegoAdivinarNumero.TabIndex = 0;
             this.btnJuegoAdivinarNumero.Text = "JUGAR";
             this.btnJuegoAdivinarNumero.UseVisualStyleBackColor = true;
@@ -66,17 +69,47 @@
             // lblNumerosProbados
             // 
             this.lblNumerosProbados.AutoSize = true;
-            this.lblNumerosProbados.Location = new System.Drawing.Point(15, 325);
+            this.lblNumerosProbados.Location = new System.Drawing.Point(12, 435);
             this.lblNumerosProbados.Name = "lblNumerosProbados";
-            this.lblNumerosProbados.Size = new System.Drawing.Size(105, 13);
+            this.lblNumerosProbados.Size = new System.Drawing.Size(0, 13);
             this.lblNumerosProbados.TabIndex = 3;
-            this.lblNumerosProbados.Text = "Números probados:  ";
+            // 
+            // txtNumUsuario
+            // 
+            this.txtNumUsuario.Location = new System.Drawing.Point(36, 312);
+            this.txtNumUsuario.MaxLength = 3;
+            this.txtNumUsuario.Name = "txtNumUsuario";
+            this.txtNumUsuario.Size = new System.Drawing.Size(65, 20);
+            this.txtNumUsuario.TabIndex = 4;
+            this.txtNumUsuario.TextChanged += new System.EventHandler(this.txtNumUsuario_TextChanged);
+            // 
+            // btnProbarNum
+            // 
+            this.btnProbarNum.Enabled = false;
+            this.btnProbarNum.Location = new System.Drawing.Point(15, 338);
+            this.btnProbarNum.Name = "btnProbarNum";
+            this.btnProbarNum.Size = new System.Drawing.Size(105, 76);
+            this.btnProbarNum.TabIndex = 5;
+            this.btnProbarNum.Text = "Probar Número";
+            this.btnProbarNum.UseVisualStyleBackColor = true;
+            this.btnProbarNum.Click += new System.EventHandler(this.btnProbarNum_Click);
+            // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Location = new System.Drawing.Point(139, 338);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 13);
+            this.lblError.TabIndex = 6;
             // 
             // frmJuegoAdivinarNumero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(419, 350);
+            this.ClientSize = new System.Drawing.Size(540, 467);
+            this.Controls.Add(this.lblError);
+            this.Controls.Add(this.btnProbarNum);
+            this.Controls.Add(this.txtNumUsuario);
             this.Controls.Add(this.lblNumerosProbados);
             this.Controls.Add(this.lblInstruccionesJuego);
             this.Controls.Add(this.lblTituloJuego);
@@ -94,5 +127,8 @@
         private System.Windows.Forms.Label lblTituloJuego;
         private System.Windows.Forms.Label lblInstruccionesJuego;
         private System.Windows.Forms.Label lblNumerosProbados;
+        private System.Windows.Forms.TextBox txtNumUsuario;
+        private System.Windows.Forms.Button btnProbarNum;
+        private System.Windows.Forms.Label lblError;
     }
 }
