@@ -27,13 +27,13 @@ namespace NavajaSuiza.Aplicación_2_ValidarFecha
         }
 
         /// <summary>
-        /// Evento que recoge una fecha, y lanza el método <see cref="ValidarFecha(int, int, int)"/> para comprobar si dicha fecha es válida
+        /// Evento que recoge una fecha, y lanza el método <see cref="FechaLógica.ValidarFecha()"/> para comprobar si dicha fecha es válida
         /// </summary>
         /// <remarks>
         /// La fecha se desglosa en tres variables de tipo entero, recogidas mediante textbox, que se corresponden con el día, mes y año
         /// </remarks>
         /// <remarks>
-        /// El booleano recibido por el método <see cref="ValidarFecha(int, int, int)"/> determina si la fecha introducida por el usuario es válida o no
+        /// El booleano recibido por el método <see cref="FechaLógica()"/> determina si la fecha introducida por el usuario es válida o no
         /// </remarks>
         /// <param name="sender"> Parámetro de tipo object</param>
         /// <param name="e"> Parámetro de la clase <see cref="EventArgs"/> </param>
@@ -42,121 +42,90 @@ namespace NavajaSuiza.Aplicación_2_ValidarFecha
             bool bDia;
             bool bMes;
             bool bAnyo;
-            string sMensajeError = "!Error!";
-            int iDia; 
-            int iMes; 
-            int iAnyo; 
+            int iDia;
+            int iMes;
+            int iAnyo;
             bool bFechaValida = true;
+            FechaLógica oFecha;
 
 
             bDia = int.TryParse((txtDia.Text), out iDia);
             bMes = int.TryParse((txtMes.Text), out iMes);
             bAnyo = int.TryParse((txtAnyo.Text), out iAnyo);
 
-            if(!bDia || !bMes || !bAnyo)
+            if (bDia && bMes && bAnyo)
             {
-                if(!bDia)
+                try
                 {
-                    sMensajeError += "\n\nEl Día introducido no es un número entero";
+                    oFecha = new FechaLógica();
+
+                    oFecha.Dia = iDia;
+                    oFecha.Mes = iMes;
+                    oFecha.Anyo = iAnyo;
+
+                    bFechaValida = oFecha.ValidarFecha();
+
+                    if (bFechaValida == true)
+                    {
+                        MessageBox.Show("La fecha introducida es válida");
+                    }
+                    else
+                    {
+                        MessageBox.Show("La fecha introducida NO es válida");
+                    }
                 }
-                if(!bMes)
+                catch (Exception ex)
                 {
-                    sMensajeError += "\n\nEl Mes introducido no es un número entero";
+                    MessageBox.Show("Se ha producido un error:" + ex.Message);
                 }
-                if (!bAnyo)
-                {
-                    sMensajeError += "\n\nEl Anyo introducido no es un número entero";
-                }
-                MessageBox.Show(sMensajeError);
+            }
+
+        }
+
+        /// <summary>
+        /// Maneja el evento TextChanged del TextBox <see cref="txtDia"/>
+        /// </summary>
+        /// <remarks> Los TextBox <see cref="txtMes"/> y <see cref="txtAnyo"/> también están ligados y activan este evento TextChanged </remarks>
+        /// <param name="sender"> Parámetro de tipo object </param>
+        /// <param name="e"> Instancia que contiene los datos del evento  <see cref="EventArgs"/> </param>
+        private void txtDia_TextChanged(object sender, EventArgs e)
+        {
+            bool bDiaCorrecto;
+            bool bMesCorrecto;
+            bool bAnyoCorrecto;
+            int iDia, iMes, iAnyo;
+
+            if (String.IsNullOrWhiteSpace(txtDia.Text) || String.IsNullOrWhiteSpace(txtMes.Text) || String.IsNullOrWhiteSpace(txtAnyo.Text))
+            {
+                btnValidarFecha.Enabled = false;
+                lblError.Text = "";
             }
             else
             {
-                bFechaValida = ValidarFecha(iDia, iMes, iAnyo);
+                bDiaCorrecto = int.TryParse(txtDia.Text, out iDia);
+                bMesCorrecto = int.TryParse(txtMes.Text, out iMes);
+                bAnyoCorrecto = int.TryParse(txtAnyo.Text, out iAnyo);
 
-                if (bFechaValida == true)
+                if (!bDiaCorrecto || !bMesCorrecto || !bAnyoCorrecto)
                 {
-                    MessageBox.Show("La fecha introducida es válida");
+                    btnValidarFecha.Enabled = false;
+                    lblError.Text = "¡Error! Ninguno de los datos introducidos puede contener caracteres que no sean numéricos";
                 }
                 else
                 {
-                    MessageBox.Show("La fecha introducida NO es válida");
+                    if (iDia < 1 || iDia > 31 || iMes < 1 || iMes > 12)
+                    {
+                        btnValidarFecha.Enabled = false;
+                        lblError.Text = "¡Error! Los datos introducidos deben estar dentro de los siguientes rangos:\n\nDía [1-31]\n\nMes [1-12]";
+
+                    }
+                    else
+                    {
+                        btnValidarFecha.Enabled = true;
+                        lblError.Text = "";
+                    }
                 }
             }
-
-        }
-
-        /// <summary>
-        /// Método que recoge tres parámetros de tipo entero (día, mes, año) correspondientes a una fecha, y determina si dicha fecha es válida o no
-        /// </summary>
-        /// <remarks> El método tiene en cuenta que los distintos meses pueden tener 28/29, 30 o 31 días </remarks>
-        /// <remarks> 
-        /// Lanza el método <see cref="ComprobarBisiesto(int)"/> que devuelve un booleano indicando si el año es bisiesto y,
-        /// con dicho booleano, el método actual determina si el mes de febrero tiene 28 días (no bisiesto) o 29 días (bisiesto)
-        /// </remarks>
-        /// <param name="iDia"> El día de la fecha introducida por el usuario </param>
-        /// <param name="iMes"> El mes de la fecha introducida por el usuario </param>
-        /// <param name="iAnyo"> El año de la fecha introducida por el usuario </param>
-        /// <returns> Booleano que indica si la fecha es válida o no </returns>
-        bool ValidarFecha(int iDia, int iMes, int iAnyo)
-        {
-            bool bFechaValida = true;
-            bool bBisiesto = false;
-
-
-            if (iDia < 1 || iDia > 31 || iMes < 1 || iMes > 12)
-            {
-                bFechaValida = false;
-            }
-            else
-            {
-                switch (iMes)
-                {
-                    case 4:
-                    case 6:
-                    case 9:
-                    case 11:
-                        if (iDia > 30)
-                        {
-                            bFechaValida = false;
-                        }
-                        break;
-                    case 2:
-                        bBisiesto = ComprobarBisiesto(iAnyo);
-                        if (bBisiesto == false && iDia > 28)
-                        {
-                            bFechaValida = false;
-                        }
-                        if (bBisiesto == true && iDia > 29)
-                        {
-                            bFechaValida = false;
-                        }
-                        break;
-                }
-            }
-
-            return bFechaValida;
-        }
-
-        /// <summary>
-        /// Método que recibe una variable de tipo entero, correspondiente a un año, y determina si dicho año es bisiesto o no, devolviendo un booleano
-        /// </summary>
-        /// <param name="iAnyo"> El año que comprobaremos si es bisiesto o no</param>
-        /// <returns> Booleano que indica si el año es bisiesto o no</returns>
-        bool ComprobarBisiesto(int iAnyo)
-        {
-            bool bBisiesto = false;
-
-
-            if (iAnyo % 4 == 0)
-            {
-                bBisiesto = true;
-                if (iAnyo % 100 == 0 && iAnyo % 400 != 0)
-                {
-                    bBisiesto = false;
-                }
-            }
-
-            return bBisiesto;
         }
     }
 }

@@ -81,7 +81,7 @@
             this.Controls.Add(this.btnNumerosPrimos);
             this.Controls.Add(this.lbl1);
             this.Name = "frmNumerosPrimos";
-            this.Text = "Aplicacion1";
+            this.Text = "Números Primos";
             this.ResumeLayout(false);
             this.PerformLayout();
 
