@@ -53,6 +53,7 @@
     <Compile Include="Aplicación 1 Números Primos\frmNumerosPrimos.Designer.cs">
       <DependentUpon>frmNumerosPrimos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Aplicación 1 Números Primos\PrimosLógica.cs" />
     <Compile Include="Aplicación 2 Validar Fecha\frmValidarFecha.cs">
       <SubType>Form</SubType>
     </Compile>

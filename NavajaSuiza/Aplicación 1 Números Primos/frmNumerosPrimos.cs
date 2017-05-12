@@ -27,70 +27,103 @@ namespace NavajaSuiza.Aplicación_1_NumerosPrimos
             InitializeComponent();
         }
 
+
         /// <summary>
-        /// Evento que recoge un número entero mediante textbox, y lanza el método <see cref="ComprobarPrimo(int)"/> para comprobar si dicho número es primo
+        /// Evento que recoge un número entero mediante textbox, y lanza el método <see cref="PrimosLógica.ComprobarPrimo(int)"/> para comprobar si dicho número es primo
         /// </summary>
-        ///  <remarks>El booleano recibido por el método <see cref="ComprobarPrimo(int)"/> determina si el número es primo o no </remarks>
+        ///  <remarks>El booleano recibido por el método <see cref="PrimosLógica.ComprobarPrimo(int)"/> determina si el número es primo o no </remarks>
         /// <param name="sender"> Parámetro de tipo object </param>
         /// <param name="e"> Parámetro de la clase <see cref="EventArgs"/> </param>
         private void btnNumerosPrimos_Click(object sender, EventArgs e)
         {
             int iNumUsuario;
+            bool bCorrecto = int.TryParse(txtNumeroUsuario.Text, out iNumUsuario);
             bool bEsPrimo = true;
-            bool bCorrecto;
 
-
-            bCorrecto = int.TryParse(txtNumeroUsuario.Text, out iNumUsuario);
-
-            if (!bCorrecto)
+            if (bCorrecto)
             {
-                MessageBox.Show("No es un número entero correcto.");
-            }
-            else
-            {
-                bEsPrimo = ComprobarPrimo(iNumUsuario);
-
-                if (bEsPrimo)
+                try
                 {
-                    MessageBox.Show("El número " + iNumUsuario + " es primo");
+                    bEsPrimo = PrimosLógica.ComprobarPrimo(iNumUsuario);
+
+                    if (bEsPrimo)
+                    {
+                        MessageBox.Show("El número " + iNumUsuario + " es primo");
+                    }
+                    else
+                    {
+                        MessageBox.Show("El número " + iNumUsuario + " no es primo");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("El número " + iNumUsuario + " no es primo");
+                    MessageBox.Show("Se ha producido un error:" + ex.Message);
                 }
             }
 
         }
 
         /// <summary>
-        /// Método que recibe un número de tipo entero, comprueba si dicho número es primo o no, y devuelve un booleano
+        /// Maneja el evento TextChanged del TextBox <see cref="txtNumeroUsuario"/> 
         /// </summary>
-        /// <remarks> 
-        /// El contador i se inicia en 2, incrementándose en + 1 en cada iteración del while,
-        /// hasta un máximo de <paramref name="iNumero"/> / 2
-        /// </remarks>
-        /// <param name="iNumero"> Valor de tipo int recogido por el método, que comprobará si es o no es primo</param>
-        /// <returns> Booleano que determina si <paramref name="iNumero"/> es primo o no</returns>
-        bool ComprobarPrimo(int iNumero)
+        /// <remarks> Activa o desactiva el botón <see cref="btnNumerosPrimos"/> en función del valor de <see cref="txtNumeroUsuario"/></remarks>
+        /// <param name="sender"> Parámetro de tipo object </param>
+        /// <param name="e"> Instancia que contiene los datos del evento <see cref="EventArgs"/> </param>
+        private void txtNumeroUsuario_TextChanged(object sender, EventArgs e)
         {
-            bool bEsPrimo = true;
-            int iModulo = 0;
-            int i = 2;
+            int iNumUsuario;
+            bool bCorrecto;
 
-
-            while(i <= iNumero / 2 && bEsPrimo)
+            if (String.IsNullOrWhiteSpace(txtNumeroUsuario.Text))
             {
-                iModulo = iNumero % i;
-
-                if(iModulo == 0)
-                {
-                    bEsPrimo = false;
-                }
-
-                i++;
+                btnNumerosPrimos.Enabled = false;
+                lblError.Text = "";
             }
+            else
+            {
+                bCorrecto = int.TryParse(txtNumeroUsuario.Text, out iNumUsuario);
 
-            return bEsPrimo;
+                if (!bCorrecto)
+                {
+                    long lngNumero;
+                    bCorrecto = long.TryParse(txtNumeroUsuario.Text, out lngNumero);
+
+                    if (bCorrecto)
+                    {
+                        if (lngNumero > Int32.MaxValue)
+                        {
+                            btnNumerosPrimos.Enabled = false;
+                            lblError.Text = "¡Error!\n\n" + txtNumeroUsuario.Text + " no es un número entero correcto\n\n El número introducido debe ser menor que " + Int32.MaxValue;
+                        }
+                        else
+                        {
+                            if (lngNumero < Int32.MinValue)
+                            {
+                                btnNumerosPrimos.Enabled = false;
+                                lblError.Text = "¡Error!\n\n" + txtNumeroUsuario.Text + " no es un número entero correcto\n\n El número introducido debe ser un número positivo mayor que 0";
+                            }
+                        }
+                    }
+                    else
+                    {
+                        btnNumerosPrimos.Enabled = false;
+                        lblError.Text = "¡Error!\n\n" + txtNumeroUsuario.Text + " no es un número entero correcto\n\n El número introducido no puede contener caracteres no numéricos";
+                    }
+                }
+                else
+                {
+                    if (iNumUsuario <= 0)
+                    {
+                        btnNumerosPrimos.Enabled = false;
+                        lblError.Text = "¡Error!\n\nEl número introducido ha de ser un número positivo mayor que 0";
+                    }
+                    else
+                    {
+                        btnNumerosPrimos.Enabled = true;
+                        lblError.Text = "";
+                    }
+                }
+            }
         }
     }
 }
