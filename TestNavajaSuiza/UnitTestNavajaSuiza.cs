@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NavajaSuiza.Aplicación_2_ValidarFecha;
 
 namespace TestNavajaSuiza
 {
@@ -99,6 +100,126 @@ namespace TestNavajaSuiza
 
                 //afirmación
                 Assert.AreEqual(sResultEsperado, sResultObtenido);
+            }
+        }
+
+
+        [TestClass]
+        public class UnitTestValidarFecha
+        {
+            [TestMethod]
+            public void TestValidarFecha_MesEnero_Dia31()
+            {
+                FechaLógica oFecha = new FechaLógica();
+
+                //escenario
+                oFecha.Dia = 31;
+                oFecha.Mes = 1;
+                oFecha.Anyo = 2000;
+                bool sResultEsperado = true;
+                bool sResultObtenido;
+
+                //acción
+                sResultObtenido = oFecha.ValidarFecha();
+
+                //afirmación
+                Assert.AreEqual(sResultEsperado, sResultObtenido);
+            }
+
+            [TestMethod]
+            public void TestValidarFecha_MesAbril_Dia30()
+            {
+                FechaLógica oFecha = new FechaLógica();
+
+                //escenario
+                oFecha.Dia = 30;
+                oFecha.Mes = 4;
+                oFecha.Anyo = 2000;
+                bool sResultEsperado = true;
+                bool sResultObtenido;
+
+                //acción
+                sResultObtenido = oFecha.ValidarFecha();
+
+                //afirmación
+                Assert.AreEqual(sResultEsperado, sResultObtenido);
+            }
+
+            [TestMethod]
+            public void TestValidarFecha_MesAbril_Dia31()
+            {
+                FechaLógica oFecha = new FechaLógica();
+
+                //escenario
+                oFecha.Dia = 31;
+                oFecha.Mes = 4;
+                oFecha.Anyo = 2000;
+                bool sResultEsperado = false;
+                bool sResultObtenido;
+
+                //acción
+                sResultObtenido = oFecha.ValidarFecha();
+
+                //afirmación
+                Assert.AreEqual(sResultEsperado, sResultObtenido);
+            }
+
+
+            [TestMethod]
+            public void TestValidarFecha_MesFebrero_Dia28_AnyoNoBisiesto()
+            {
+                FechaLógica oFecha = new FechaLógica();
+
+                //escenario
+                oFecha.Dia = 28;
+                oFecha.Mes = 2;
+                oFecha.Anyo = 1999;
+                bool sResultEsperado = true;
+                bool sResultObtenido;
+
+                //acción
+                sResultObtenido = oFecha.ValidarFecha();
+
+                //afirmación
+                Assert.AreEqual(sResultEsperado, sResultObtenido);
+            }
+
+            [TestMethod]
+            public void TestValidarFecha_MesFebrero_Dia29_AnyoNoBisiesto()
+            {
+                FechaLógica oFecha = new FechaLógica();
+
+                //escenario
+                oFecha.Dia = 29;
+                oFecha.Mes = 2;
+                oFecha.Anyo = 1999;
+                bool sResultEsperado = false;
+                bool sResultObtenido;
+
+                //acción
+                sResultObtenido = oFecha.ValidarFecha();
+
+                //afirmación
+                Assert.AreEqual(sResultEsperado, sResultObtenido);
+            }
+
+            [TestMethod]
+            public void TestValidarFecha_MesFebrero_Dia29_AnyoBisiesto()
+            {
+                FechaLógica oFecha = new FechaLógica();
+
+                //escenario
+                oFecha.Dia = 29;
+                oFecha.Mes = 2;
+                oFecha.Anyo = 2000;
+                bool bResultEsperado = true;
+                bool bResultObtenido;
+
+                //acción
+                bResultObtenido = oFecha.ValidarFecha();
+
+                //afirmación
+                Assert.AreEqual(bResultEsperado, bResultObtenido);
             }
         }
 
