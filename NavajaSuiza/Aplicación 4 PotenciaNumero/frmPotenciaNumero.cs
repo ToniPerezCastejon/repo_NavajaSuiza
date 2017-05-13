@@ -27,7 +27,7 @@ namespace NavajaSuiza.Aplicación_4_PotenciaNumero
         }
 
         /// <summary>
-        /// Evento que recoge mediante TextBox dos números enteros -una base y un exponente- y lanza el método <see cref="CalcularPotencia(int, int)"/> 
+        /// Evento que recoge mediante TextBox dos números enteros -una base y un exponente- y lanza el método <see cref="PotenciaLógica.CalcularPotencia(int, int)"/> 
         /// para calcular la potencia
         /// </summary>
         /// <param name="sender"> Parámetro de tipo object </param>
@@ -36,64 +36,112 @@ namespace NavajaSuiza.Aplicación_4_PotenciaNumero
         {
             int iBase;
             int iExponente;
-            int iResultado;
-            bool bBaseValida;
-            bool bExponenteValido;
-            string sMensajeError = "!Error!";
+            double dResultado;
 
+            iBase = int.Parse(txtBase.Text);
+            iExponente = int.Parse(txtExponente.Text);
 
-            bBaseValida = int.TryParse(txtBase.Text, out iBase);
-            bExponenteValido = int.TryParse(txtExponente.Text, out iExponente);
-
-            if(!bBaseValida || !bExponenteValido)
+            try
             {
-                if(!bBaseValida)
-                {
-                    sMensajeError += "\n\nLa base introducida debe de ser un número entero";
-                }
-                if(!bExponenteValido)
-                {
-                    sMensajeError += "\n\nEl exponente introducido debe de ser un número entero";
-                }
-                MessageBox.Show(sMensajeError);
+                dResultado = PotenciaLógica.CalcularPotencia(iBase, iExponente);
+                MessageBox.Show(dResultado.ToString());
             }
-            else
+            catch (Exception ex)
             {
-                iResultado = CalcularPotencia(iBase, iExponente);
-                MessageBox.Show(iResultado.ToString());
+                MessageBox.Show("Se ha producido un error:" + ex.Message);
             }
         }
 
         /// <summary>
-        /// Método que calcula la potencia de un número base elevado a un número exponente
+        /// Maneja el evento TextChanged del TextBox <see cref="txtBase"/>
         /// </summary>
-        /// <remarks> El método también es capaz de operar con números negativos</remarks>
-        /// <param name="iBase"> Base o número cuya potencia queremos calcular</param>
-        /// <param name="iExponente"> Exponente o número al que elevaremos la base</param>
-        /// <returns> El resultado de calcular la potencia de <paramref name="iBase"/> elevado a <paramref name="iExponente"/> </returns>
-        int CalcularPotencia(int iBase, int iExponente)
+        /// <remarks> El TextBox <see cref="txtExponente"/> también está ligado y activa este evento TextChanged</remarks>
+        /// <param name="sender"> Parámetro de tipo object </param>
+        /// <param name="e"> Instancia que contiene los datos del evento <see cref="EventArgs"/></param>
+        private void txtBase_TextChanged(object sender, EventArgs e)
         {
-            int iResultado = 1;
-            bool bPositivo = true;
+            int iBase;
+            int iExponente;
+            bool bBaseCorrecta;
+            bool bExpCorrecto;
 
-
-            if (iExponente < 0)
+            if (String.IsNullOrWhiteSpace(txtBase.Text) || String.IsNullOrWhiteSpace(txtExponente.Text))
             {
-                bPositivo = false;
-                iExponente = -iExponente;
+                btnPotenciaNumero.Enabled = false;
+                lblErrorBase.Text = "";
+                lblErrorExp.Text = "";
             }
-
-            for (int i = 1; i <= iExponente; i++)
+            else
             {
-                iResultado = iResultado * iBase;
-            }
+                bBaseCorrecta = int.TryParse(txtBase.Text, out iBase);
+                bExpCorrecto = int.TryParse(txtExponente.Text, out iExponente);
 
-            if (bPositivo == false)
-            {
-                iResultado = 1 / iResultado;
-            }
+                if (!bBaseCorrecta || !bExpCorrecto)
+                {
+                    long lngBase;
+                    long lngExp;
+                    bBaseCorrecta = long.TryParse(txtBase.Text, out lngBase);
+                    bExpCorrecto = long.TryParse(txtExponente.Text, out lngExp);
 
-            return iResultado;
+                    if (bBaseCorrecta)
+                    {
+                        if (lngBase > Int32.MaxValue)
+                        {
+                            btnPotenciaNumero.Enabled = false; 
+                            lblErrorBase.Text = "La base introducida debe ser menor que " + Int32.MaxValue;
+                        }
+                        else
+                        {
+                            if (lngBase < Int32.MinValue)
+                            {
+                                btnPotenciaNumero.Enabled = false;                               
+                                lblErrorBase.Text = "La base introducida debe ser mayor que " + Int32.MinValue;
+                            }
+                            else
+                            {
+                                lblErrorBase.Text = "";
+                            }
+                        }
+                    }
+                    else
+                    {
+                        btnPotenciaNumero.Enabled = false;                        
+                        lblErrorBase.Text = "La base introducida no puede contener caracteres no numéricos";
+                    }
+
+                    if (bExpCorrecto)
+                    {
+                        if (lngExp > Int32.MaxValue)
+                        {
+                            btnPotenciaNumero.Enabled = false;                           
+                            lblErrorExp.Text = "El exponente introducido debe ser menor que " + Int32.MaxValue;
+                        }
+                        else
+                        {
+                            if (lngExp < Int32.MinValue)
+                            {
+                                btnPotenciaNumero.Enabled = false;
+                                lblErrorExp.Text = "El exponente introducido debe ser menor que " + Int32.MinValue;
+                            }
+                            else
+                            {
+                                lblErrorExp.Text = "";
+                            }
+                        }
+                    }
+                    else
+                    {
+                        btnPotenciaNumero.Enabled = false;                        
+                        lblErrorExp.Text = "El exponente introducido no puede contener caracteres no numéricos";
+                    }
+                }
+                else
+                {
+                    btnPotenciaNumero.Enabled = true;
+                    lblErrorExp.Text = "";
+                    lblErrorBase.Text = "";
+                }
+            }
         }
     }
 }

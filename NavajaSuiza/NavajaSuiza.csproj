@@ -74,6 +74,7 @@
     <Compile Include="Aplicación 4 PotenciaNumero\frmPotenciaNumero.Designer.cs">
       <DependentUpon>frmPotenciaNumero.cs</DependentUpon>
     </Compile>
+    <Compile Include="Aplicación 4 PotenciaNumero\PotenciaLógica.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -34,10 +34,13 @@
             this.lblBase = new System.Windows.Forms.Label();
             this.lblExponente = new System.Windows.Forms.Label();
             this.lblInstruccionesPotencia = new System.Windows.Forms.Label();
+            this.lblErrorBase = new System.Windows.Forms.Label();
+            this.lblErrorExp = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnPotenciaNumero
             // 
+            this.btnPotenciaNumero.Enabled = false;
             this.btnPotenciaNumero.Location = new System.Drawing.Point(16, 162);
             this.btnPotenciaNumero.Name = "btnPotenciaNumero";
             this.btnPotenciaNumero.Size = new System.Drawing.Size(145, 98);
@@ -49,16 +52,20 @@
             // txtBase
             // 
             this.txtBase.Location = new System.Drawing.Point(80, 67);
+            this.txtBase.MaxLength = 11;
             this.txtBase.Name = "txtBase";
             this.txtBase.Size = new System.Drawing.Size(100, 20);
             this.txtBase.TabIndex = 1;
+            this.txtBase.TextChanged += new System.EventHandler(this.txtBase_TextChanged);
             // 
             // txtExponente
             // 
             this.txtExponente.Location = new System.Drawing.Point(80, 109);
+            this.txtExponente.MaxLength = 7;
             this.txtExponente.Name = "txtExponente";
             this.txtExponente.Size = new System.Drawing.Size(100, 20);
             this.txtExponente.TabIndex = 2;
+            this.txtExponente.TextChanged += new System.EventHandler(this.txtBase_TextChanged);
             // 
             // lblBase
             // 
@@ -87,11 +94,29 @@
             this.lblInstruccionesPotencia.TabIndex = 5;
             this.lblInstruccionesPotencia.Text = "Introduce una base y un exponente para calcular la potencia";
             // 
+            // lblErrorBase
+            // 
+            this.lblErrorBase.AutoSize = true;
+            this.lblErrorBase.Location = new System.Drawing.Point(198, 67);
+            this.lblErrorBase.Name = "lblErrorBase";
+            this.lblErrorBase.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorBase.TabIndex = 6;
+            // 
+            // lblErrorExp
+            // 
+            this.lblErrorExp.AutoSize = true;
+            this.lblErrorExp.Location = new System.Drawing.Point(201, 109);
+            this.lblErrorExp.Name = "lblErrorExp";
+            this.lblErrorExp.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorExp.TabIndex = 7;
+            // 
             // frmPotenciaNumero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 272);
+            this.ClientSize = new System.Drawing.Size(612, 272);
+            this.Controls.Add(this.lblErrorExp);
+            this.Controls.Add(this.lblErrorBase);
             this.Controls.Add(this.lblInstruccionesPotencia);
             this.Controls.Add(this.lblExponente);
             this.Controls.Add(this.lblBase);
@@ -113,5 +138,7 @@
         private System.Windows.Forms.Label lblBase;
         private System.Windows.Forms.Label lblExponente;
         private System.Windows.Forms.Label lblInstruccionesPotencia;
+        private System.Windows.Forms.Label lblErrorBase;
+        private System.Windows.Forms.Label lblErrorExp;
     }
 }
