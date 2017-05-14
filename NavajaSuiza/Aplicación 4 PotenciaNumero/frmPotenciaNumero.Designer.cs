@@ -61,7 +61,7 @@
             // txtExponente
             // 
             this.txtExponente.Location = new System.Drawing.Point(80, 109);
-            this.txtExponente.MaxLength = 7;
+            this.txtExponente.MaxLength = 4;
             this.txtExponente.Name = "txtExponente";
             this.txtExponente.Size = new System.Drawing.Size(100, 20);
             this.txtExponente.TabIndex = 2;

@@ -358,9 +358,219 @@ namespace TestNavajaSuiza
                 Assert.AreEqual(iCompareNumsEsperado, iCompareNumsObtenido);
                 Assert.AreEqual(iIntentosRestantesEsperado, iIntentosRestantesObtenido);
             }
-
         }
 
 
+        [TestClass]
+        public class UnitTestPotenciaNúmero
+        {
+            [TestMethod]
+            public void TestCalcularPotencia_BasePosit_ExpPosit()
+            {
+                //escenario
+                int iBase = 2;
+                int iExp = 3;
+                double sResultEsperado = 8;
+                double sResultObtenido;
+
+                //acción
+                sResultObtenido = NavajaSuiza.Aplicación_4_PotenciaNumero.PotenciaLógica.CalcularPotencia(iBase, iExp);
+
+                //afirmación
+                Assert.AreEqual(sResultEsperado, sResultObtenido);
+            }
+
+            [TestMethod]
+            public void TestCalcularPotencia_BaseMaxValue_Exp9999999()
+            {
+                //escenario
+                int iBase = int.MaxValue;
+                int iExp = 9999; //
+                double sResultEsperado = double.PositiveInfinity;
+                double sResultObtenido;
+
+                //acción
+                sResultObtenido = NavajaSuiza.Aplicación_4_PotenciaNumero.PotenciaLógica.CalcularPotencia(iBase, iExp);
+
+                //afirmación
+                Assert.AreEqual(sResultEsperado, sResultObtenido);
+            }
+
+            [TestMethod]
+            public void TestCalcularPotencia_BasePosit_ExpNegat()
+            {
+                //escenario
+                int iBase = 2;
+                int iExp = -3;
+                double sResultEsperado = 0.125;
+                double sResultObtenido;
+
+                //acción
+                sResultObtenido = NavajaSuiza.Aplicación_4_PotenciaNumero.PotenciaLógica.CalcularPotencia(iBase, iExp);
+
+                //afirmación
+                Assert.AreEqual(sResultEsperado, sResultObtenido);
+            }
+
+            [TestMethod]
+            public void TestCalcularPotencia_BaseMaxValue_ExpNegat()
+            {
+                //escenario
+                int iBase = int.MaxValue;
+                int iExp = -999;
+                double sResultEsperado = 0;
+                double sResultObtenido;
+
+                //acción
+                sResultObtenido = NavajaSuiza.Aplicación_4_PotenciaNumero.PotenciaLógica.CalcularPotencia(iBase, iExp);
+
+                //afirmación
+                Assert.AreEqual(sResultEsperado, sResultObtenido);
+            }
+
+            [TestMethod]
+            public void TestCalcularPotencia_BasePosit_Exp0()
+            {
+                //escenario
+                int iBase = 2;
+                int iExp = 0;
+                double sResultEsperado = 1;
+                double sResultObtenido;
+
+                //acción
+                sResultObtenido = NavajaSuiza.Aplicación_4_PotenciaNumero.PotenciaLógica.CalcularPotencia(iBase, iExp);
+
+                //afirmación
+                Assert.AreEqual(sResultEsperado, sResultObtenido);
+            }
+
+            [TestMethod]
+            public void TestCalcularPotencia_Base0_Exp0()
+            {
+                //escenario
+                int iBase = 0;
+                int iExp = 0;
+                double sResultEsperado = 1;
+                double sResultObtenido;
+
+                //acción
+                sResultObtenido = NavajaSuiza.Aplicación_4_PotenciaNumero.PotenciaLógica.CalcularPotencia(iBase, iExp);
+
+                //afirmación
+                Assert.AreEqual(sResultEsperado, sResultObtenido);
+            }
+
+            [TestMethod]
+            public void TestCalcularPotencia_Base0_ExpPosit()
+            {
+                //escenario
+                int iBase = 0;
+                int iExp = 3;
+                double sResultEsperado = 0;
+                double sResultObtenido;
+
+                //acción
+                sResultObtenido = NavajaSuiza.Aplicación_4_PotenciaNumero.PotenciaLógica.CalcularPotencia(iBase, iExp);
+
+                //afirmación
+                Assert.AreEqual(sResultEsperado, sResultObtenido);
+            }
+
+            [TestMethod]
+            public void TestCalcularPotencia_Base0_ExpNegat()
+            {
+                //escenario
+                int iBase = 0;
+                int iExp = -3;
+                double sResultEsperado = double.PositiveInfinity;
+                double sResultObtenido;
+
+                //acción
+                sResultObtenido = NavajaSuiza.Aplicación_4_PotenciaNumero.PotenciaLógica.CalcularPotencia(iBase, iExp);
+
+                //afirmación
+                Assert.AreEqual(sResultEsperado, sResultObtenido);
+            }
+
+            [TestMethod]
+            public void TestCalcularPotencia_BaseNegat_ExpPosit()
+            {
+                //escenario
+                int iBase = -2;
+                int iExp = 3;
+                double sResultEsperado = -8;
+                double sResultObtenido;
+
+                //acción
+                sResultObtenido = NavajaSuiza.Aplicación_4_PotenciaNumero.PotenciaLógica.CalcularPotencia(iBase, iExp);
+
+                //afirmación
+                Assert.AreEqual(sResultEsperado, sResultObtenido);
+            }
+
+            [TestMethod]
+            public void TestCalcularPotencia_BaseMinValue_Exp9999999()
+            {
+                //escenario
+                int iBase = int.MinValue; //-2147483647
+                int iExp = 9999; //
+                double sResultEsperado = double.NegativeInfinity;
+                double sResultObtenido;
+
+                //acción
+                sResultObtenido = NavajaSuiza.Aplicación_4_PotenciaNumero.PotenciaLógica.CalcularPotencia(iBase, iExp);
+
+                //afirmación
+                Assert.AreEqual(sResultEsperado, sResultObtenido);
+            }
+
+            [TestMethod]
+            public void TestCalcularPotencia_BaseNegat_ExpNegat()
+            {
+                //escenario
+                int iBase = -2;
+                int iExp = -3;
+                double sResultEsperado = -0.125;
+                double sResultObtenido;
+
+                //acción
+                sResultObtenido = NavajaSuiza.Aplicación_4_PotenciaNumero.PotenciaLógica.CalcularPotencia(iBase, iExp);
+
+                //afirmación
+                Assert.AreEqual(sResultEsperado, sResultObtenido);
+            }
+
+            [TestMethod]
+            public void TestCalcularPotencia_BaseMinValue_ExpNegat()
+            {
+                //escenario
+                int iBase = int.MinValue;
+                int iExp = -999;
+                double sResultEsperado = 0;
+                double sResultObtenido;
+
+                //acción
+                sResultObtenido = NavajaSuiza.Aplicación_4_PotenciaNumero.PotenciaLógica.CalcularPotencia(iBase, iExp);
+
+                //afirmación
+                Assert.AreEqual(sResultEsperado, sResultObtenido);
+            }
+
+            [TestMethod]
+            public void TestCalcularPotencia_BaseNegat_Exp0()
+            {
+                //escenario
+                int iBase = -2;
+                int iExp = 0;
+                double sResultEsperado = 1;
+                double sResultObtenido;
+
+                //acción
+                sResultObtenido = NavajaSuiza.Aplicación_4_PotenciaNumero.PotenciaLógica.CalcularPotencia(iBase, iExp);
+
+                //afirmación
+                Assert.AreEqual(sResultEsperado, sResultObtenido);
+            }
+        }
     }
 }
