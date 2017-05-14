@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NavajaSuiza.Aplicación_2_ValidarFecha;
+using NavajaSuiza.Aplicación_3_JuegoAdivinarNumero;
 
 namespace TestNavajaSuiza
 {
@@ -222,6 +223,144 @@ namespace TestNavajaSuiza
                 Assert.AreEqual(bResultEsperado, bResultObtenido);
             }
         }
+
+        [TestClass]
+        public class UnitTestAdivinarNúmeroAleatorio
+        {
+            [TestMethod]
+            public void TestJugarRandom_PrimerIntento_NumeroAcertado()
+            {
+                AdivinarNúmeroLógica oAdivinarNum = new AdivinarNúmeroLógica();
+
+                //escenario
+                oAdivinarNum.NumAleatorio = 50;
+                oAdivinarNum.IntentosRestantes = 6;
+                int iNumero = 50;
+                int iCompareNumsEsperado = 0;
+                int iCompareNumsObtenido;
+                int iIntentosRestantesEsperado = 5;
+                int iIntentosRestantesObtenido;
+
+                //acción
+                oAdivinarNum.JugarRandom(iNumero, out iCompareNumsObtenido, out iIntentosRestantesObtenido);
+
+                //afirmación
+                Assert.AreEqual(iCompareNumsEsperado, iCompareNumsObtenido);
+                Assert.AreEqual(iIntentosRestantesEsperado, iIntentosRestantesObtenido);
+            }
+
+            [TestMethod]
+            public void TestJugarRandom_UltimoIntento_NumeroAcertado()
+            {
+                AdivinarNúmeroLógica oAdivinarNum = new AdivinarNúmeroLógica();
+
+                //escenario
+                oAdivinarNum.NumAleatorio = 50;
+                oAdivinarNum.IntentosRestantes = 1;
+                int iNumero = 50;
+                int iCompareNumsEsperado = 0;
+                int iCompareNumsObtenido;
+                int iIntentosRestantesEsperado = 0;
+                int iIntentosRestantesObtenido;
+
+                //acción
+                oAdivinarNum.JugarRandom(iNumero, out iCompareNumsObtenido, out iIntentosRestantesObtenido);
+
+                //afirmación
+                Assert.AreEqual(iCompareNumsEsperado, iCompareNumsObtenido);
+                Assert.AreEqual(iIntentosRestantesEsperado, iIntentosRestantesObtenido);
+            }
+
+            [TestMethod]
+            public void TestJugarRandom_PrimerIntento_NumeroMayorQueRandom()
+            {
+                AdivinarNúmeroLógica oAdivinarNum = new AdivinarNúmeroLógica();
+
+                //escenario
+                oAdivinarNum.NumAleatorio = 50;
+                oAdivinarNum.IntentosRestantes = 6;
+                int iNumero = 75;
+                int iCompareNumsEsperado = 1;
+                int iCompareNumsObtenido;
+                int iIntentosRestantesEsperado = 5;
+                int iIntentosRestantesObtenido;
+
+                //acción
+                oAdivinarNum.JugarRandom(iNumero, out iCompareNumsObtenido, out iIntentosRestantesObtenido);
+
+                //afirmación
+                Assert.AreEqual(iCompareNumsEsperado, iCompareNumsObtenido);
+                Assert.AreEqual(iIntentosRestantesEsperado, iIntentosRestantesObtenido);
+            }
+
+            [TestMethod]
+            public void TestJugarRandom_UltimoIntento_NumeroMayorQueRandom()
+            {
+                AdivinarNúmeroLógica oAdivinarNum = new AdivinarNúmeroLógica();
+
+                //escenario
+                oAdivinarNum.NumAleatorio = 50;
+                oAdivinarNum.IntentosRestantes = 1;
+                int iNumero = 75;
+                int iCompareNumsEsperado = 1;
+                int iCompareNumsObtenido;
+                int iIntentosRestantesEsperado = 0;
+                int iIntentosRestantesObtenido;
+
+                //acción
+                oAdivinarNum.JugarRandom(iNumero, out iCompareNumsObtenido, out iIntentosRestantesObtenido);
+
+                //afirmación
+                Assert.AreEqual(iCompareNumsEsperado, iCompareNumsObtenido);
+                Assert.AreEqual(iIntentosRestantesEsperado, iIntentosRestantesObtenido);
+            }
+
+            [TestMethod]
+            public void TestJugarRandom_PrimerIntento_NumeroMenorQueRandom()
+            {
+                AdivinarNúmeroLógica oAdivinarNum = new AdivinarNúmeroLógica();
+
+                //escenario
+                oAdivinarNum.NumAleatorio = 50;
+                oAdivinarNum.IntentosRestantes = 6;
+                int iNumero = 25;
+                int iCompareNumsEsperado = -1;
+                int iCompareNumsObtenido;
+                int iIntentosRestantesEsperado = 5;
+                int iIntentosRestantesObtenido;
+
+                //acción
+                oAdivinarNum.JugarRandom(iNumero, out iCompareNumsObtenido, out iIntentosRestantesObtenido);
+
+                //afirmación
+                Assert.AreEqual(iCompareNumsEsperado, iCompareNumsObtenido);
+                Assert.AreEqual(iIntentosRestantesEsperado, iIntentosRestantesObtenido);
+            }
+
+            [TestMethod]
+            public void TestJugarRandom_UltimoIntento_NumeroMenorQueRandom()
+            {
+                AdivinarNúmeroLógica oAdivinarNum = new AdivinarNúmeroLógica();
+
+                //escenario
+                oAdivinarNum.NumAleatorio = 50;
+                oAdivinarNum.IntentosRestantes = 1;
+                int iNumero = 25;
+                int iCompareNumsEsperado = -1;
+                int iCompareNumsObtenido;
+                int iIntentosRestantesEsperado = 0;
+                int iIntentosRestantesObtenido;
+
+                //acción
+                oAdivinarNum.JugarRandom(iNumero, out iCompareNumsObtenido, out iIntentosRestantesObtenido);
+
+                //afirmación
+                Assert.AreEqual(iCompareNumsEsperado, iCompareNumsObtenido);
+                Assert.AreEqual(iIntentosRestantesEsperado, iIntentosRestantesObtenido);
+            }
+
+        }
+
 
     }
 }

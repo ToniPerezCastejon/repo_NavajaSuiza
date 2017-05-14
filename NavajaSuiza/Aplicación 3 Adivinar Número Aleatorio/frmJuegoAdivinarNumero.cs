@@ -172,10 +172,10 @@ namespace NavajaSuiza.Aplicación_3_JuegoAdivinarNumero
                     }
                     else
                     {
-                        if (iNumUsuario < 0)
+                        if (iNumUsuario < 0 || iNumUsuario > 100)
                         {
                             btnProbarNum.Enabled = false;
-                            lblError.Text = "¡Error!\n\nEl número introducido ha de ser un número igual o mayor que 0";
+                            lblError.Text = "¡Error!\n\nEl número introducido ha de estar comprendido en el rango [0-100]";
                         }
                         else
                         {
