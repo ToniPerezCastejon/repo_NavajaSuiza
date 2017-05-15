@@ -75,6 +75,11 @@
       <DependentUpon>frmPotenciaNumero.cs</DependentUpon>
     </Compile>
     <Compile Include="Aplicación 4 PotenciaNumero\PotenciaLógica.cs" />
+    <Compile Include="CadenasTexto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CadenasTexto.resx</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +99,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Aplicación 4 PotenciaNumero\frmPotenciaNumero.resx">
       <DependentUpon>frmPotenciaNumero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CadenasTexto.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CadenasTexto.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>

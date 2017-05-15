@@ -48,19 +48,18 @@ namespace NavajaSuiza.Aplicación_1_NumerosPrimos
 
                     if (bEsPrimo)
                     {
-                        MessageBox.Show("El número " + iNumUsuario + " es primo");
+                        MessageBox.Show(iNumUsuario + CadenasTexto.Primo);
                     }
                     else
                     {
-                        MessageBox.Show("El número " + iNumUsuario + " no es primo");
+                        MessageBox.Show(iNumUsuario + CadenasTexto.NoPrimo);
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Se ha producido un error:" + ex.Message);
+                    MessageBox.Show(CadenasTexto.Error + ex.Message);
                 }
             }
-
         }
 
         /// <summary>
@@ -77,7 +76,7 @@ namespace NavajaSuiza.Aplicación_1_NumerosPrimos
             if (String.IsNullOrWhiteSpace(txtNumeroUsuario.Text))
             {
                 btnNumerosPrimos.Enabled = false;
-                lblError.Text = "";
+                lblError.Text = CadenasTexto.Vacio;
             }
             else
             {
@@ -93,21 +92,21 @@ namespace NavajaSuiza.Aplicación_1_NumerosPrimos
                         if (lngNumero > Int32.MaxValue)
                         {
                             btnNumerosPrimos.Enabled = false;
-                            lblError.Text = "¡Error!\n\n" + txtNumeroUsuario.Text + " no es un número entero correcto\n\n El número introducido debe ser menor que " + Int32.MaxValue;
+                            lblError.Text = CadenasTexto.Error + txtNumeroUsuario.Text + CadenasTexto.NumeroIncorrecto + CadenasTexto.MenorQue + Int32.MaxValue;
                         }
                         else
                         {
                             if (lngNumero < Int32.MinValue)
                             {
                                 btnNumerosPrimos.Enabled = false;
-                                lblError.Text = "¡Error!\n\n" + txtNumeroUsuario.Text + " no es un número entero correcto\n\n El número introducido debe ser un número positivo mayor que 0";
+                                lblError.Text = CadenasTexto.Error + txtNumeroUsuario.Text + CadenasTexto.NumeroIncorrecto + CadenasTexto.MayorQue0;
                             }
                         }
                     }
                     else
                     {
                         btnNumerosPrimos.Enabled = false;
-                        lblError.Text = "¡Error!\n\n" + txtNumeroUsuario.Text + " no es un número entero correcto\n\n El número introducido no puede contener caracteres no numéricos";
+                        lblError.Text = CadenasTexto.Error + txtNumeroUsuario.Text + CadenasTexto.NumeroIncorrecto + CadenasTexto.CaracteresAlfaNum;
                     }
                 }
                 else
@@ -115,12 +114,12 @@ namespace NavajaSuiza.Aplicación_1_NumerosPrimos
                     if (iNumUsuario <= 0)
                     {
                         btnNumerosPrimos.Enabled = false;
-                        lblError.Text = "¡Error!\n\nEl número introducido ha de ser un número positivo mayor que 0";
+                        lblError.Text = CadenasTexto.Error + CadenasTexto.MayorQue0;
                     }
                     else
                     {
                         btnNumerosPrimos.Enabled = true;
-                        lblError.Text = "";
+                        lblError.Text = CadenasTexto.Vacio;
                     }
                 }
             }
