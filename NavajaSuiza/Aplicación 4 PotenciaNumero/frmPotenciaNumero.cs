@@ -8,9 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-/// <summary>
-///  Espacio de nombres para la aplicación <see cref="NavajaSuiza.Aplicación_4_PotenciaNumero"/>
-/// </summary>
+
 namespace NavajaSuiza.Aplicación_4_PotenciaNumero
 {
     /// <summary>
@@ -36,19 +34,24 @@ namespace NavajaSuiza.Aplicación_4_PotenciaNumero
         {
             int iBase;
             int iExponente;
+            bool bBaseCorrecto;
+            bool bExpCorrecto;
             double dResultado;
 
-            iBase = int.Parse(txtBase.Text);
-            iExponente = int.Parse(txtExponente.Text);
+            bBaseCorrecto = int.TryParse(txtBase.Text, out iBase);
+            bExpCorrecto = int.TryParse(txtExponente.Text, out iExponente);
 
-            try
+            if(bBaseCorrecto && bExpCorrecto)
             {
-                dResultado = PotenciaLógica.CalcularPotencia(iBase, iExponente);
-                MessageBox.Show(dResultado.ToString());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Se ha producido un error:" + ex.Message);
+                try
+                {
+                    dResultado = PotenciaLógica.CalcularPotencia(iBase, iExponente);
+                    MessageBox.Show(dResultado.ToString());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Se ha producido un error:" + ex.Message);
+                }
             }
         }
 

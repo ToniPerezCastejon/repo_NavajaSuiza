@@ -41,7 +41,7 @@
             this.lbl1.Name = "lbl1";
             this.lbl1.Size = new System.Drawing.Size(199, 13);
             this.lbl1.TabIndex = 0;
-            this.lbl1.Text = "Introduce un número entero mayor que 0";
+            this.lbl1.Text = CadenasTexto.IntroduceNum;
             // 
             // btnNumerosPrimos
             // 
@@ -50,7 +50,7 @@
             this.btnNumerosPrimos.Name = "btnNumerosPrimos";
             this.btnNumerosPrimos.Size = new System.Drawing.Size(144, 128);
             this.btnNumerosPrimos.TabIndex = 1;
-            this.btnNumerosPrimos.Text = "Comprobar si el número es primo";
+            this.btnNumerosPrimos.Text = CadenasTexto.ComprobarPrimo;
             this.btnNumerosPrimos.UseVisualStyleBackColor = true;
             this.btnNumerosPrimos.Click += new System.EventHandler(this.btnNumerosPrimos_Click);
             // 
@@ -81,7 +81,7 @@
             this.Controls.Add(this.btnNumerosPrimos);
             this.Controls.Add(this.lbl1);
             this.Name = "frmNumerosPrimos";
-            this.Text = "Números Primos";
+            this.Text = CadenasTexto.NumerosPrimos;
             this.ResumeLayout(false);
             this.PerformLayout();
 

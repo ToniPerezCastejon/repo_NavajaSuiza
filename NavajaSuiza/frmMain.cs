@@ -8,9 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-/// <summary>
-/// Espacio de nombres para la aplicación <see cref="NavajaSuiza"/>
-/// </summary>
+
 namespace NavajaSuiza
 {
     /// <summary>

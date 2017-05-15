@@ -5,9 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-/// <summary>
-/// Espacio de nombres utilizado para la clase 
-/// </summary>
+
 namespace NavajaSuiza.Aplicación_3_JuegoAdivinarNumero
 {
     /// <summary>

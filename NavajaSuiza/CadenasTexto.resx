@@ -120,10 +120,16 @@
   <data name="CaracteresAlfaNum" xml:space="preserve">
     <value>El número introducido no puede contener caracteres no numéricos</value>
   </data>
+  <data name="ComprobarPrimo" xml:space="preserve">
+    <value>Comprobar si el número es primo</value>
+  </data>
   <data name="Error" xml:space="preserve">
     <value>¡Error!
 
 </value>
+  </data>
+  <data name="IntroduceNum" xml:space="preserve">
+    <value>Introduce un número mayor que 0</value>
   </data>
   <data name="MayorQue0" xml:space="preserve">
     <value>El número introducido debe ser un número positivo mayor que 0</value>
@@ -138,6 +144,9 @@
     <value> no es un número entero correcto
 
 </value>
+  </data>
+  <data name="NumerosPrimos" xml:space="preserve">
+    <value>Números Primos</value>
   </data>
   <data name="Primo" xml:space="preserve">
     <value> es primo</value>

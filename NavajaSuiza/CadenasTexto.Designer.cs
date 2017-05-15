@@ -70,6 +70,15 @@ namespace NavajaSuiza {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Comprobar si el número es primo.
+        /// </summary>
+        internal static string ComprobarPrimo {
+            get {
+                return ResourceManager.GetString("ComprobarPrimo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a ¡Error!
         ///
         ///.
@@ -77,6 +86,15 @@ namespace NavajaSuiza {
         internal static string Error {
             get {
                 return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Introduce un número mayor que 0.
+        /// </summary>
+        internal static string IntroduceNum {
+            get {
+                return ResourceManager.GetString("IntroduceNum", resourceCulture);
             }
         }
         
@@ -115,6 +133,15 @@ namespace NavajaSuiza {
         internal static string NumeroIncorrecto {
             get {
                 return ResourceManager.GetString("NumeroIncorrecto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Números Primos.
+        /// </summary>
+        internal static string NumerosPrimos {
+            get {
+                return ResourceManager.GetString("NumerosPrimos", resourceCulture);
             }
         }
         
